@@ -1,0 +1,81 @@
+<button class="bt" mat-raised-button color="primary">
+  Release<mat-icon>add</mat-icon>
+</button>
+<br>
+<button style="margin-left: 950px;">Retrospection</button>
+<br>
+<br>
+<label>
+  <input type="checkbox" name="Iteration" value="Iteration1" style="margin-left: 10px;">
+  Iteration1
+</label>
+<label>
+  <input type="checkbox" name="Iteration" value="Iteration2" style="margin-left: 10px;">
+  Iteration2
+</label>
+
+<label>
+  <input type="checkbox" name="Iteration" value="Iteration3" style="margin-left: 10px;">
+  Iteration3
+</label>
+<div class="container-fluid">
+  <table>
+    <tbody>
+    <thead>
+      <tr>
+        <th>retrospection_details_id</th>
+        <th>Created_by</th>
+        <th>retrospection_id</th>
+        <th>Action_item</th>
+        <th>Description</th>
+        <th>Well/Wrong</th>
+
+
+      </tr>
+    
+    
+      <tr *ngFor="let retro of retrospection_details">
+    
+        <td>{{retro.rtrospection_details_id}}</td>
+        <td>{{retro.action_item}}</td>
+        <td>{{retro.description}}</td>
+        <td>{{retro.is_went_well}}</td>
+        <td>{{retro.createdBy.userId.userFirstName}}</td>
+        <td>{{retro.retrospectionId}}</td>
+      </tr>
+      <tr>
+        <td><input type="text" [(ngModel)]="row.retrospection_details"></td>
+        <td><input type="text" [(ngModel)]="row.Action_item"></td>
+        <td><input type="text" [(ngModel)]="row.Description"></td>
+        <td><input type="text" [(ngModel)]="row['Well/Wrong']"></td>
+        <td><input type="text" [(ngModel)]="row.Created_by"></td>
+        <td><input type="text" [(ngModel)]="row.retrospection_id"></td>
+
+
+
+      </tr>
+    
+   
+  </thead>
+
+      
+      <tfoot>
+    
+      <tr>
+        <th colspan="4" style="text-align: center; vertical-align: bottom;">
+          <button>Save</button>
+          <button style="margin-left: 10px;">Edit/Update</button>
+          <button style="margin-left: 10px;">Delete</button>
+        </th>
+      </tr>
+    </tfoot>
+  
+
+  </table>
+
+    </div>
+
+    
+
+  
+  

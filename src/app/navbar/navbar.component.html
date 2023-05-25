@@ -1,0 +1,36 @@
+<mat-toolbar  class="nav">
+    <button mat-icon-button (click)="nav.toggle()"><mat-icon> format_list_bulleted </mat-icon></button>
+    <div class="logo"><mat-icon> bubble_chart </mat-icon> Project Managment Tool</div>
+    <div class="extra"></div>
+    <!-- <button mat-icon-button routerLink="loginPage"><mat-icon> person_outline </mat-icon></button> -->
+    
+    <button mat-raised-button color="primary"><mat-icon> perm_identity </mat-icon> Login</button>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-wrapper" >
+    <mat-sidenav  #nav>
+        <a [routerLink]="['home']" color="primary" class="sidebar-text" >
+            <button mat-button>
+                <span>Home</span>
+            </button>
+        </a>
+
+        <a [routerLink]="['inpedements']" color="primary" class="sidebar-text">
+            <button mat-button>
+                <span>Inpediments</span>
+            </button>
+        </a>
+
+        <a [routerLink]="['retrospection']" color="primary" class="sidebar-text">
+            <button mat-button>
+                <span>Retrospection</span>
+            </button>
+        </a>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+ 
+  
