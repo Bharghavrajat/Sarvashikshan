@@ -1,21 +1,10 @@
 package com.ScrumTool.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.ScrumTool.Invitation.Invitation;
-import com.ScrumTool.Project.Project;
-import com.ScrumTool.ProjectUserRole.ProjectUserRole;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +15,6 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "User_Id")
 	private long userId;
-	
 	@Column(name = "User_First_Name")
 	private String userFirstName;
 
@@ -35,6 +23,12 @@ public class User {
 
 	@Column(name = "EmailId")
 	private String emailId;
+	
+	@Column(name  = "Email_Confirmed")
+	private Boolean emailConfirmed;
+	
+	@Column(name = "Confirmation_Token")
+	private String confirmationToken;
 
 	@Column(name = "Password")
 	private String password;
@@ -47,18 +41,6 @@ public class User {
 
 	@Column(name = "Country_Code")
 	private String countrycode;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Project> projects = new ArrayList<>();
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "invitedBy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Invitation> invitation = new ArrayList<>();
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "userId", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ProjectUserRole> projectUserRole = new ArrayList<>();
 
 	public long getUserId() {
 		return userId;
@@ -90,6 +72,22 @@ public class User {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public boolean isEmailConfirmed() {
+		return emailConfirmed;
+	}
+
+	public void setEmailConfirmed(boolean emailConfirmed) {
+		this.emailConfirmed = emailConfirmed;
+	}
+
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
 	}
 
 	public String getPassword() {
@@ -124,51 +122,25 @@ public class User {
 		this.countrycode = countrycode;
 	}
 
-	public List<Project> getProjects() {
-		return projects;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
-	}
-
-	public List<Invitation> getInvitation() {
-		return invitation;
-	}
-
-	public void setInvitation(List<Invitation> invitation) {
-		this.invitation = invitation;
-	}
-
-	public List<ProjectUserRole> getProjectUserRole() {
-		return projectUserRole;
-	}
-
-	public void setProjectUserRole(List<ProjectUserRole> projectUserRole) {
-		this.projectUserRole = projectUserRole;
-	}
-
-	public User(long userId, String userFirstName, String userlastName, String emailId, String password,
-			String contactNumber, String companyName, String countrycode, List<Project> projects,
-			List<Invitation> invitation, List<ProjectUserRole> projectUserRole) {
+	public User(long userId, String userFirstName, String userlastName, String emailId, boolean emailConfirmed,
+			String confirmationToken, String password, String contactNumber, String companyName, String countrycode) {
 		super();
 		this.userId = userId;
 		this.userFirstName = userFirstName;
 		this.userlastName = userlastName;
 		this.emailId = emailId;
+		this.emailConfirmed = emailConfirmed;
+		this.confirmationToken = confirmationToken;
 		this.password = password;
 		this.contactNumber = contactNumber;
 		this.companyName = companyName;
 		this.countrycode = countrycode;
-		this.projects = projects;
-		this.invitation = invitation;
-		this.projectUserRole = projectUserRole;
 	}
-
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
 }
+
+	
