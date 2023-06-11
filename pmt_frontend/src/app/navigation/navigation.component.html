@@ -1,0 +1,85 @@
+<p>
+    <mat-toolbar>
+          <button mat-icon-button (click)="toggleSideNav()" class="icon"><mat-icon>menu</mat-icon></button>
+          <mat-tab-group [(selectedIndex)]="selectedDrawer">
+            <mat-tab  label="Backlog"></mat-tab>
+            <mat-tab label="Releases"> </mat-tab>
+        </mat-tab-group>
+        <button routerLink="/impediments" (click)="onImpediments()"  mat-button>Impediments</button>
+        <button mat-button [matMenuTriggerFor]="menu">Create +</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Epic</button>
+            <button mat-menu-item>Story</button>
+            <button mat-menu-item>Release</button>
+        </mat-menu>
+       
+    </mat-toolbar>
+</p>
+
+<mat-drawer-container class="sidenav-wrapper">
+    <mat-drawer #sidenav mode="side" [(opened)]="isSideNavOpen">
+
+        <div class="drawer">
+            <div *ngIf="selectedDrawer === 0">
+                <div class="content">
+                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                        <!-- This is the tree node template for leaf nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                            <!-- use a disabled button to provide padding for tree leaf -->
+                            <button mat-icon-button disabled></button>
+                            <div>
+                                <mat-icon>{{node.name}}</mat-icon>
+                                <a [routerLink]="['story']" class="dropdown-link">{{node.name}}</a>
+                            </div>
+
+                        </mat-tree-node>
+                        <!-- This is the tree node template for expandable nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                            </button>
+                            <div>
+                                <mat-icon>{{node.name}}</mat-icon>
+                                <a class="dropdown-link">{{node.name}}</a>
+                            </div>
+                        </mat-tree-node>
+                    </mat-tree>
+                </div>
+            </div>
+
+            <div *ngIf="selectedDrawer === 1">
+                <div class="content">
+                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                        <!-- This is the tree node template for leaf nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                            <!-- use a disabled button to provide padding for tree leaf -->
+                            <button mat-icon-button disabled></button>
+                            <div>
+                                <mat-icon>{{node.name}}</mat-icon>
+                                <a [routerLink]="['story']" class="dropdown-link">{{node.name}}</a>
+                            </div>
+
+                        </mat-tree-node>
+                        <!-- This is the tree node template for expandable nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                            </button>
+                            <div>
+                                <mat-icon>{{node.name}}</mat-icon>
+                                <a class="dropdown-link">{{node.name}}</a>
+                            </div>
+                        </mat-tree-node>
+                    </mat-tree>
+                </div>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
