@@ -27,7 +27,7 @@ public class UserService {
 	  
 	  System.out.println(user);
 	  
-	  if (user != null && !user.isEmailConfirmed() && isTokenValid(token)) {
+	  if (user != null && !user.getEmailConfirmed() && isTokenValid(token)) {
 	  user.setEmailConfirmed(true); userRepository.save(user); return true; }
 	  
 	  return false; }

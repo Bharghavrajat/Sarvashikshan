@@ -1,5 +1,7 @@
 package com.ScrumTool.User;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Users_Table")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class User {
 	@Id
@@ -74,11 +77,11 @@ public class User {
 		this.emailId = emailId;
 	}
 
-	public boolean isEmailConfirmed() {
+	public Boolean getEmailConfirmed() {
 		return emailConfirmed;
 	}
 
-	public void setEmailConfirmed(boolean emailConfirmed) {
+	public void setEmailConfirmed(Boolean emailConfirmed) {
 		this.emailConfirmed = emailConfirmed;
 	}
 
@@ -127,7 +130,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(long userId, String userFirstName, String userlastName, String emailId, boolean emailConfirmed,
+	public User(long userId, String userFirstName, String userlastName, String emailId, Boolean emailConfirmed,
 			String confirmationToken, String password, String contactNumber, String companyName, String countrycode) {
 		super();
 		this.userId = userId;

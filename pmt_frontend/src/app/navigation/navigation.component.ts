@@ -9,69 +9,14 @@ import { ReleaseService } from '../service/release.service';
 import { Release } from '../classes/release';
 
 interface Data {
+  id:number;
   name: string;
-  icon: string;
-  link: string;
   children?: Data[];
 }
 
-const TREE_DATA: Data[] = [
-  {
-    name: 'Epic 1',
-    icon: 'E',
-    link:'/epic',
-    children: 
-    [
-      { 
-        name: 'Story', 
-        icon: 'S', 
-        link:'/story',
-        children: 
-        [
-          { 
-            name: 'Task 1',
-            link:'/task', 
-            icon: 'T' 
-          }, 
-          { 
-            name: 'Task 2',
-            link:'/task', 
-            icon: 'T' 
-          }
-        ] 
-      }
-    ]
-  },
-  {
-    name: 'Epic 2',
-    icon: 'E',
-    link: '/epic',
-    children: 
-    [
-      { 
-        name: 'Story', 
-        icon: 'S', 
-        link:'/story', 
-        children: 
-        [
-          { 
-            name: 'Task 1',
-            link:'/task', 
-            icon: 'T' 
-          }, 
-          { 
-            name: 'Task 2',
-            link:'/task', 
-            icon: 'T' 
-          }
-        ] 
-      }
-    ]
-  },
 
-];
-
-
+var TREE_DATA: Data[];
+  
 
 /** Flat node with expandable and level information */
 interface FlatNode {
@@ -94,8 +39,12 @@ throw new Error('Method not implemented.');
   selectedDrawer:number = 0;
 
   constructor(public dialog: MatDialog, private navigationService: NavigationService , private  releaseService : ReleaseService) {
-    this.dataSource.data = TREE_DATA;
-    
+    navigationService.getTree().subscribe(data => {
+      TREE_DATA = data;
+      this.dataSource.data = TREE_DATA;
+      
+      console.log(TREE_DATA);
+    }) 
   }
   
   private _transformer = (node: Data, level: number) => {
