@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
 import { ImpedimentsComponent } from './impediments/impediments.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RetrospectionComponent } from './retrospection/retrospection.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoryComponent,
     TaskComponent,
     FormComponent,
+    RetrospectionComponent,
     ImpedimentsComponent,
   ],
   imports: [

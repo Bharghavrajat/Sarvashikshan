@@ -87,6 +87,9 @@ interface FlatNode {
 })
 
 export class NavigationComponent {
+onretrospection() {
+throw new Error('Method not implemented.');
+}
   isSideNavOpen = true;
   selectedDrawer:number = 0;
 
@@ -143,6 +146,10 @@ export class NavigationComponent {
   }
 
   onImpediments() {
+    this.isSideNavOpen = false;
+  }
+
+  onRetrospection() {
     this.isSideNavOpen = false;
   }
 

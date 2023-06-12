@@ -7,6 +7,7 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { NavigationComponent } from './navigation/navigation.component';
 import { EpicComponent } from './epic/epic.component';
 import { StoryComponent } from './story/story.component';
+import { RetrospectionComponent } from './retrospection/retrospection.component';
 import { ImpedimentsComponent } from './impediments/impediments.component';
 
 const routes: Routes = [
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path:"story",component:StoryComponent
+  },
+  {
+    path:"retrospection",component:RetrospectionComponent
   },
   {
     path:"impediments",component:ImpedimentsComponent
