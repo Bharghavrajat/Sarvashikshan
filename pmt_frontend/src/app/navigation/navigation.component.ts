@@ -146,6 +146,9 @@ export class NavigationComponent {
     this.isSideNavOpen = false;
   }
 
+  onIssue() {
+    this.isSideNavOpen = false;
+  }
 
   release : Release[] ;
 
@@ -161,5 +164,4 @@ export class NavigationComponent {
       console.log(data)
     })
   }
-
 }

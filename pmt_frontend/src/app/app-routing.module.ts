@@ -8,6 +8,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { EpicComponent } from './epic/epic.component';
 import { StoryComponent } from './story/story.component';
 import { ImpedimentsComponent } from './impediments/impediments.component';
+import { IssueComponent } from './issue/issue.component';
+import { CreateImpedimentsComponent } from './create-impediments/create-impediments.component';
+import { CreateIssueComponent } from './create-issue/create-issue.component';
+import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
 
 const routes: Routes = [
   {
@@ -33,6 +37,18 @@ const routes: Routes = [
   },
   {
     path:"impediments",component:ImpedimentsComponent
+  },
+  {
+    path:"issue",component:IssueComponent
+  },
+  { 
+    path: 'create-impediments', component: CreateImpedimentsComponent 
+  },
+  { 
+    path: 'create-issue', component: CreateIssueComponent 
+  },
+  { 
+    path: 'update-impediments', component: UpdateImpedimentsComponent 
   }
 ];
 
