@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import { NavigationService } from '../navigation.service';
 import { CreateProjectComponent } from '../create-project/create-project.component';
+import { ReleaseService } from '../service/release.service';
+import { Release } from '../classes/release';
 
 interface Data {
   name: string;
@@ -88,7 +90,7 @@ export class NavigationComponent {
   isSideNavOpen = true;
   selectedDrawer:number = 0;
 
-  constructor(public dialog: MatDialog, private navigationService: NavigationService) {
+  constructor(public dialog: MatDialog, private navigationService: NavigationService , private  releaseService : ReleaseService) {
     this.dataSource.data = TREE_DATA;
     
   }
@@ -143,4 +145,21 @@ export class NavigationComponent {
   onImpediments() {
     this.isSideNavOpen = false;
   }
+
+
+  release : Release[] ;
+
+  ngOnInit(): void {
+    this.getAllRelease();
+
+  }
+
+  // ------------Get Releases --------------
+  private getAllRelease() {
+    this.releaseService.getRelease().subscribe(data => {
+      this.release = data;
+      console.log(data)
+    })
+  }
+
 }
