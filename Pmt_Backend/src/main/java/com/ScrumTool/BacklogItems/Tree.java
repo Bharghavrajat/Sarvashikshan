@@ -5,21 +5,21 @@ import java.util.ArrayList;
 
 public class Tree {
 	 private long id;
-	 private String type;
+	 private String name;
 	 private List<Tree> children;
 	
-	 public Tree(long id,String type) {
+	 public Tree(long id,String name) {
 	        this.id = id;
-	        this.type = type;
+	        this.name = name;
 	        this.children = new ArrayList<>();
 	    }
 	
-	 public String getType() {
-		return type;
+	 public String getName() {
+		return name;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getId() {
