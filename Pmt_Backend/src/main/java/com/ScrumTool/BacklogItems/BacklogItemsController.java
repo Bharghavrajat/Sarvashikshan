@@ -40,7 +40,7 @@ public class BacklogItemsController {
 		
 		for(BacklogItems backlogItem: backlogItems ) {
 			long id = backlogItem.getBacklogItemId();
-			String backlogType = backlogItem.getBacklogTypeId().getBacklogTypeName();
+			String backlogType = backlogItem.getBacklogName();
 			Tree tree = new Tree(id,backlogType);
 			treeList.add(tree);
 		}
@@ -58,17 +58,12 @@ public class BacklogItemsController {
 			long parentId = backlogItemParentChild.getBacklogItemParentId().getBacklogItemId();
 			long childId = backlogItemParentChild.getBacklogItemChildId().getBacklogItemId();
 			
-			System.out.println(parentId + ":" + childId);
 			
 			Tree parentNode = getTreeNode(parentId,getTreeNodeList());
 			parentNode.getChildren().add(getTreeNode(childId,getTreeNodeList()));
 			Tree grandParent;
 			
-			System.out.println(parentNode);
-			
 			boolean added = false;
-			
-			
 			
 			for(BacklogItemParentChild backlogItemParent: backlogItemParentChildList) {
 				if(parentId == backlogItemParent.getBacklogItemChildId().getBacklogItemId()) {
