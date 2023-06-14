@@ -12,6 +12,7 @@
         </mat-tab-group> -->
         <button routerLink="/retrospection" (click)="onretrospection()" mat-button>Retrospection</button>
         <button routerLink="/impediments" (click)="onImpediments()" mat-button>Impediments</button>
+        <button routerLink="/issue" (click)="onIssue()" mat-button>Issue</button>
         <button mat-button [matMenuTriggerFor]="menu">Create +</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="openDialog()">Epic</button>

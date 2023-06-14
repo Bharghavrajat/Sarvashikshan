@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ReleaseService {
 
-  private baserURL ="http://localhost:2023/api/v1/release"
+  private baserURL ="http://localhost:8080/api/v1/release"
   constructor(private httpClient:HttpClient) { }
 
   //------------------ get Release API ------------------

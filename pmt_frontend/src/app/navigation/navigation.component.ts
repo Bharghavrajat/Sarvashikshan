@@ -98,10 +98,16 @@ throw new Error('Method not implemented.');
     this.isSideNavOpen = false;
   }
 
+<<<<<<< HEAD
   onRetrospection() {
     this.isSideNavOpen = false;
   }
 
+=======
+  onIssue() {
+    this.isSideNavOpen = false;
+  }
+>>>>>>> 1d65219fed5f67590c3628d1ff7b32e382a104a5
 
   release : Release[] ;
 
@@ -117,5 +123,4 @@ throw new Error('Method not implemented.');
       console.log(data)
     })
   }
-
 }
