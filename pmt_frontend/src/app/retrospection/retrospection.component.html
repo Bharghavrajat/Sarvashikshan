@@ -1,1 +1,112 @@
-<p>Retrospection works!</p>
+<p>Retrospection</p>
+
+<div class="container" *ngIf="retrospection.length > 0">
+    <table mat-table [dataSource]="retrospection">
+
+        <ng-container matColumnDef="Release_Sprint_id">
+            <th mat-header-cell *matHeaderCellDef> Release_Sprint_id </th>
+            <td mat-cell *matCellDef="let retrospection"> {{ retrospection.Release_Sprint_id }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Created_by">
+            <th mat-header-cell *matHeaderCellDef> Created_by </th>
+            <td mat-cell *matCellDef="let retrospection"> {{ retrospection.Created_by }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Created_On">
+            <th mat-header-cell *matHeaderCellDef> Created_On </th>
+            <td mat-cell *matCellDef="let retrospection"> {{ retrospection.Created_On }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let retrospection"> {{ retrospection.Status }} </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        
+        </table>
+        </div>
+        <br>
+      
+    
+  
+  
+  
+   <!-- <mat-menu #menu="matMenu">
+  
+  <button mat-menu-item (click)="openDialog()">
+      <mat-icon>edit</mat-icon>
+      <span>Edit</span>
+  </button>
+  
+  
+  <button mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+  </button>
+  
+  </mat-menu>
+  
+  <mat-drawer-container class="sidenav-wrapper">
+  <mat-drawer #releasesidenavbar mode="side" [(opened)]="isreleasesidenavbar">
+  
+  <div class="drawer">
+      <div *ngIf="selectedDrawer ===0">
+          <div class="content">
+          </div>
+      </div>
+  </div>
+  
+  </mat-drawer> 
+  </mat-drawer-container> 
+  
+  
+  <div class="container-fluid">
+    
+    <table>
+      <thead>
+        <tr>
+          <th>retrospection_id</th>
+          <th>Release_Sprint_id</th>
+          <th>Created_by</th>
+          <th>Created_On</th>
+          <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let retro of retrospection">
+          <td>{{retro.rtrospectionId}}</td>
+          <td>-</td>
+          <td>-</td>
+          <td>{{retro.createdOn}}</td>
+          <td>-</td>
+        </tr>
+      </tbody> -->
+    
+  
+     <!-- <button mat-menu-item (click)="openDialog()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+        
+    </button>
+  
+    <button mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+  </button> 
+  
+    
+    </table>
+  </div> -->
+  
+  
+
+
+<div style="display: flex; justify-content: center;">
+    <button mat-raised-button color="primary" routerLink="/retrospection">Retrospection</button>
+    <span style="margin-left: 10px;"></span>
+</div>    

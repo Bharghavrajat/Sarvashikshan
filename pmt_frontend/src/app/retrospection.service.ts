@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Retrospection } from './classes/retrospection';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError,throwError } from 'rxjs';
-import { Retrospection } from '../classes/retrospection';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +15,5 @@ export class RetrospectionService {
   getretrospection(): Observable<Retrospection[]>{
     return this.http.get<Retrospection[]>(`${this.baseURL}`);
   }
+
   }

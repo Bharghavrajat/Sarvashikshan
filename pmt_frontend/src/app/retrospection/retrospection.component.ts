@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./retrospection.component.css']
 })
 export class RetrospectionComponent {
+retrospection: any;
+displayedColumns: any;
+openDialog() {
+throw new Error('Method not implemented.');
+}
 
 }
