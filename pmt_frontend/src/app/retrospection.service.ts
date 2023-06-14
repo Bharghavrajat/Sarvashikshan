@@ -8,12 +8,17 @@ import { Observable, catchError,throwError } from 'rxjs';
 })
 export class RetrospectionService {
 
-  private baseURL ="http://localhost:8086/api/v1/retrospection";
+  private apiUrl ="http://localhost:7825/api/v1/retrospection";
 
   constructor(private http: HttpClient) { }
   
   getretrospection(): Observable<Retrospection[]>{
-    return this.http.get<Retrospection[]>(`${this.baseURL}`);
+    return this.http.get<Retrospection[]>(`${this.apiUrl}`);
   }
+
+  openretrospection(retrospection: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, retrospection);
+  }
+
 
   }

@@ -39,6 +39,7 @@ import { RetrospectionComponent } from './retrospection/retrospection.component'
 import { MatTableModule } from '@angular/material/table';
 import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
+import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { UpdateImpedimentsComponent } from './update-impediments/update-impedime
     IssueComponent,
     CreateIssueComponent,
     UpdateImpedimentsComponent,
+    OpenRetrospectionComponent,
   ],
 
   imports: [
