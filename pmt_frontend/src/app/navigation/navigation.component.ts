@@ -11,6 +11,7 @@ import { Release } from '../classes/release';
 interface Data {
   id:number;
   name: string;
+  type: number;
   children?: Data[];
 }
 
