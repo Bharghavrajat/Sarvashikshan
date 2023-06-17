@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./open-retrospection.component.css']
 })
 export class OpenRetrospectionComponent {
-retrospection: any;
  
 }

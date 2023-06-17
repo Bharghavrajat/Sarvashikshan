@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RetrospectionService {
 
-  private apiUrl = "http://localhost:59031/api/v1/retrospection";
+  private apiUrl = "http://localhost:7825/api/v1/retrospection";
 
   constructor(private http: HttpClient) { }
 
