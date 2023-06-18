@@ -14,6 +14,8 @@ import { CreateImpedimentsComponent } from './create-impediments/create-impedime
 import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
 import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
+import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
+
 
 const routes: Routes = [
   {
@@ -41,9 +43,11 @@ const routes: Routes = [
     path:"retrospection",component:RetrospectionComponent
   },
   { 
-    path: 'opeb-retrospection', component: OpenRetrospectionComponent 
+    path: 'open-retrospection', component: OpenRetrospectionComponent 
   },
-
+  { 
+    path: 'edit-retrospection', component: EditRetrospectionComponent 
+  },
   {
     path:"impediments",component:ImpedimentsComponent
   },
