@@ -1,38 +1,32 @@
-package com.ScrumTool.Service;
+package com.ScrumTool.BacklogItems;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Component;
 
 import com.ScrumTool.BacklogItemParentChild.BacklogItemParentChild;
-import com.ScrumTool.BacklogItemParentChild.BacklogItemParentChildController;
-import com.ScrumTool.BacklogItems.BacklogItems;
-import com.ScrumTool.BacklogItems.BacklogItemsController;
+import com.ScrumTool.BacklogItemParentChild.BacklogItemParentChildRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController
-@RequestMapping("/api/v1/")
-public class TreeHierarchyService {
+@Component
+public class Service {
+	
 
-	@Autowired
-	private BacklogItemsController backlogController;
+    @Autowired
+    private BacklogItemsRepository backlogItemRepository;
 
 	@Autowired
-	private BacklogItemParentChildController backlogItemParentChildController;
+	private BacklogItemParentChildRepository backlogItemParentChildRepository;
 
 	private List<Tree> getTreeList() {
-		List<BacklogItems> backlogItems = backlogController.getAllBacklogItem();
+		List<BacklogItemDto> backlogItems = backlogItemRepository.findBacklogItemColumns();
 		List<Tree> treeList = new ArrayList<Tree>();
 
-		for (BacklogItems backlogItem : backlogItems) {
+		for (BacklogItemDto backlogItem : backlogItems) {
 			long id = backlogItem.getBacklogItemId();
 			String backlogName = backlogItem.getBacklogName();
-			long backlogType = backlogItem.getBacklogTypeId().getBacklogTypeId();
+			long backlogType = backlogItem.getBacklogTypeId();
 
 			Tree tree = new Tree(id, backlogName, backlogType);
 			treeList.add(tree);
@@ -44,8 +38,7 @@ public class TreeHierarchyService {
 	private List<Tree> addChild() {
 		List<Tree> treeList = getTreeList();
 		List<Tree> parentChildTree = new ArrayList<Tree>();
-		List<BacklogItemParentChild> backlogItemRelationships = backlogItemParentChildController
-				.getAllBacklogItemParentChild();
+		List<BacklogItemParentChild> backlogItemRelationships = backlogItemParentChildRepository.findAll();
 
 		for (BacklogItemParentChild backlogItemRelationship : backlogItemRelationships) {
 			long parentId = backlogItemRelationship.getBacklogItemParentId().getBacklogItemId();
@@ -66,8 +59,7 @@ public class TreeHierarchyService {
 		return parentChildTree;
 	}
 
-	@GetMapping("/Tree")
-	public List<Tree> removeDuplicates() {
+	public List<Tree> getTree() {
 		List<Tree> parentChildHierarchy = addChild();
 		List<Tree> finalTree = new ArrayList<Tree>();
 
