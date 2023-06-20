@@ -9,7 +9,7 @@ import { ReleaseService } from '../service/release.service';
 import { Release } from '../classes/release';
 
 interface Data {
-  id:number;
+  id:number; 
   name: string;
   type: number;
   children?: Data[];
@@ -22,7 +22,9 @@ var TREE_DATA: Data[];
 /** Flat node with expandable and level information */
 interface FlatNode {
   expandable: boolean;
+  id:number; 
   name: string;
+  type: number;
   level: number;
 }
 
@@ -48,10 +50,12 @@ throw new Error('Method not implemented.');
     }) 
   }
   
-  private _transformer = (node: Data, level: number) => {
+  private _transformer = (node: Data,level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
-      name: node.name,
+      id: node.id,
+      name:node.name,
+      type:node.type,
       level: level,
     };
   };
