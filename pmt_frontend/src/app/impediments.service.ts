@@ -6,9 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ImpedimentsService {
-  updateImpediments(id: number, updatedImpediments: { title: string; description: string; priority: string; status: string; sprintId: string; }) {
-    throw new Error('Method not implemented.');
-  }
   private apiUrl = 'http://localhost:8080/api/v1/impediment';
 
   constructor(private http: HttpClient) { }
@@ -19,5 +16,15 @@ export class ImpedimentsService {
 
   createImpediment(impediment: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, impediment);
+  }
+
+  deleteImpediment(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<any>(url);
+  }
+
+  updateImpediment(id: number, updatedImpediment: any): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<any>(url, updatedImpediment);
   }
 }

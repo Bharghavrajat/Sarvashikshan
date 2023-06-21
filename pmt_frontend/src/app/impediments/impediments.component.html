@@ -1,5 +1,7 @@
 <h2>IMPEDIMENTS</h2>
 
+<p>Date: {{ currentDate | date }}</p> <!--Displaying the current date-->
+
 <div class="container" *ngIf="impediments.length > 0">
   <table mat-table [dataSource]="impediments">
 
