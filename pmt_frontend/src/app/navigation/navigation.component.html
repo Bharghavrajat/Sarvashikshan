@@ -9,7 +9,8 @@
         <!-- <mat-tab-group [(selectedIndex)]="selectedDrawer">
             <mat-tab label="Backlog"></mat-tab>
             <mat-tab label="Releases"></mat-tab>
-        </mat-tab-group> --> 
+        </mat-tab-group> -->
+        <button routerLink="/retrospection" (click)="onretrospection()" mat-button>Retrospection</button>
         <button routerLink="/impediments" (click)="onImpediments()" mat-button>Impediments</button>
         <button routerLink="/issue" (click)="onIssue()" mat-button>Issue</button>
         <button mat-button [matMenuTriggerFor]="menu">Create +</button>
@@ -41,8 +42,24 @@
                                     <!-- use a disabled button to provide padding for tree leaf -->
                                     <button mat-icon-button disabled></button>
                                     <div>
-                                        <mat-icon>{{node.name}}</mat-icon>
-                                        <a [routerLink]="['story']" class="dropdown-link">{{node.name}}</a>
+                                        <div>
+                                            <div *ngIf="node.type === 1">
+                                                <mat-icon >E</mat-icon>
+                                                <a [routerLink]="['epic',node.id]" class="dropdown-link">{{node.name}}</a>
+                                            </div>
+    
+                                            <div *ngIf="node.type === 2">
+                                                <mat-icon >U</mat-icon>
+                                                <a [routerLink]="['story',node.id]" class="dropdown-link">{{node.name}}</a>
+                                            </div>
+    
+                                            <div *ngIf="node.type === 3">
+                                                <mat-icon >T</mat-icon>
+                                                <a [routerLink]="['task',node.id]" class="dropdown-link">{{node.name}}</a>
+                                            </div>
+                                           
+                                            
+                                        </div>
                                     </div>
 
                                 </mat-tree-node>
@@ -54,8 +71,22 @@
                                         </mat-icon>
                                     </button>
                                     <div>
-                                        <mat-icon>{{node.name}}</mat-icon>
-                                        <a class="dropdown-link">{{node.name}}</a>
+                                        <div *ngIf="node.type === 1">
+                                            <mat-icon >E</mat-icon>
+                                            <a [routerLink]="['epic',node.id]" class="dropdown-link">{{node.name}}</a>
+                                        </div>
+
+                                        <div *ngIf="node.type === 2">
+                                            <mat-icon >U</mat-icon>
+                                            <a [routerLink]="['story',node.id]" class="dropdown-link">{{node.name}}</a>
+                                        </div>
+
+                                        <div *ngIf="node.type === 3">
+                                            <mat-icon >T</mat-icon>
+                                            <a [routerLink]="['task',node.id]" class="dropdown-link">{{node.name}}</a>
+                                        </div>
+                                       
+                                        
                                     </div>
                                 </mat-tree-node>
                             </mat-tree>
@@ -102,6 +133,7 @@
                                 <summary style="font-size: 20px; color: black;padding-bottom: 15px;">
                                     {{rel.releaseName}}
                                 </summary>
+                                
                                 <!-- <ul *ngFor="let relSprint of rel.release_sprint ">
                                     <div>
 
@@ -111,12 +143,14 @@
                                        
                                     </div>
                                 </ul> -->
-                            </details>
+                         </details>
                         </li>
                     </ul>
                 </div>
             </mat-tab>
             <!-- --------------------------------------------------------------------- -->
+
+            
         </mat-tab-group>
     </mat-drawer>
     <mat-drawer-content>

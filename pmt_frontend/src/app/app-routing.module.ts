@@ -7,11 +7,16 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { NavigationComponent } from './navigation/navigation.component';
 import { EpicComponent } from './epic/epic.component';
 import { StoryComponent } from './story/story.component';
+import { RetrospectionComponent } from './retrospection/retrospection.component';
 import { ImpedimentsComponent } from './impediments/impediments.component';
 import { IssueComponent } from './issue/issue.component';
 import { CreateImpedimentsComponent } from './create-impediments/create-impediments.component';
 import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
+import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
+import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
+import { TaskComponent } from './task/task.component';
+
 
 const routes: Routes = [
   {
@@ -30,10 +35,19 @@ const routes: Routes = [
     path:"navigation",component:NavigationComponent
   },
   {
-    path:"epic",component:EpicComponent
+    path:"epic/:id",component:EpicComponent
   },
   {
-    path:"story",component:StoryComponent
+    path:"story/:id",component:StoryComponent
+  },
+  {
+    path:"retrospection",component:RetrospectionComponent
+  },
+  { 
+    path: 'open-retrospection', component: OpenRetrospectionComponent 
+  },
+  { 
+    path: 'edit-retrospection', component: EditRetrospectionComponent 
   },
   {
     path:"impediments",component:ImpedimentsComponent
@@ -49,6 +63,10 @@ const routes: Routes = [
   },
   { 
     path: 'update-impediments', component: UpdateImpedimentsComponent 
+  }
+,
+  { 
+    path: 'task/:id', component: TaskComponent 
   }
 ];
 

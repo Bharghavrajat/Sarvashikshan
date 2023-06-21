@@ -1,0 +1,26 @@
+<p>open-retrospection works!</p>
+<div class="container-fluid">
+  
+  <table>
+    <thead>
+      <tr>
+        <th>retrospection_id</th>
+        <th>Release_Sprint_id</th>
+        <th>Created_by</th>
+        <th>Created_On</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let retro of retrospection">
+        <td>{{retro.rtrospectionId}}</td>
+        <td>{{retro.releaseSprintId}}</td>
+        <td>{{retro.createdBy.userId.userFirstName}}</td>
+        <td>{{retro.createdOn}}</td>
+        <td>{{retro.status.retrospectionStatusName}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+

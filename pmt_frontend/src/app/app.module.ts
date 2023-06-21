@@ -35,12 +35,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RetrospectionComponent } from './retrospection/retrospection.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
-
-
-
+import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
+import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
 
 @NgModule({
   declarations: [
@@ -54,13 +54,15 @@ import { UpdateImpedimentsComponent } from './update-impediments/update-impedime
     StoryComponent,
     TaskComponent,
     FormComponent,
+    RetrospectionComponent,
     ImpedimentsComponent,
     CreateImpedimentsComponent,
     IssueComponent,
     CreateIssueComponent,
     UpdateImpedimentsComponent,
+    OpenRetrospectionComponent,
+    EditRetrospectionComponent,
   ],
-
 
   imports: [
     BrowserModule,
