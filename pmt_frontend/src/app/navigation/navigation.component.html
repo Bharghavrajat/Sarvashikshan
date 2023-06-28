@@ -133,17 +133,16 @@
                                 <summary style="font-size: 20px; color: black;padding-bottom: 15px;">
                                     {{rel.releaseName}}
                                 </summary>
-                                
-                                <!-- <ul *ngFor="let relSprint of rel.release_sprint ">
+                                <ul *ngFor="let relSprint of rel.releaseSprint ">
                                     <div>
 
-                                        <button (click)="openScrumBoard(relSprint.release_sprint_id)"
+                                        <button (click)="openScrumBoard(relSprint.releaseSprintId)"
                                             style="margin-bottom: 10px ;" mat-stroked-button
-                                            color="primary">{{relSprint.sprint_name}}</button>
+                                            color="primary">{{relSprint.sprintName}}</button>
                                        
                                     </div>
-                                </ul> -->
-                         </details>
+                                </ul>
+                            </details>
                         </li>
                     </ul>
                 </div>

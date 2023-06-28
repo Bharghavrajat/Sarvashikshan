@@ -7,9 +7,10 @@ import { NavigationService } from '../navigation.service';
 import { CreateProjectComponent } from '../create-project/create-project.component';
 import { ReleaseService } from '../service/release.service';
 import { Release } from '../classes/release';
+import { Router } from '@angular/router';
 
 interface Data {
-  id:number; 
+  id: number;
   name: string;
   type: number;
   children?: Data[];
@@ -17,12 +18,12 @@ interface Data {
 
 
 var TREE_DATA: Data[];
-  
+
 
 /** Flat node with expandable and level information */
 interface FlatNode {
   expandable: boolean;
-  id:number; 
+  id: number;
   name: string;
   type: number;
   level: number;
@@ -35,27 +36,27 @@ interface FlatNode {
 })
 
 export class NavigationComponent {
-onretrospection() {
-throw new Error('Method not implemented.');
-}
+  onretrospection() {
+    throw new Error('Method not implemented.');
+  }
   isSideNavOpen = true;
-  selectedDrawer:number = 0;
+  selectedDrawer: number = 0;
 
-  constructor(public dialog: MatDialog, private navigationService: NavigationService , private  releaseService : ReleaseService) {
+  constructor(public dialog: MatDialog, private navigationService: NavigationService, private releaseService: ReleaseService , private router : Router) {
     navigationService.getTree().subscribe(data => {
       TREE_DATA = data;
       this.dataSource.data = TREE_DATA;
-      
+
       console.log(TREE_DATA);
-    }) 
+    })
   }
-  
-  private _transformer = (node: Data,level: number) => {
+
+  private _transformer = (node: Data, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       id: node.id,
-      name:node.name,
-      type:node.type,
+      name: node.name,
+      type: node.type,
       level: level,
     };
   };
@@ -74,7 +75,7 @@ throw new Error('Method not implemented.');
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
- 
+
 
   hasChild = (_: number, node: FlatNode) => node.expandable;
 
@@ -84,7 +85,7 @@ throw new Error('Method not implemented.');
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateProjectComponent, {
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -96,7 +97,7 @@ throw new Error('Method not implemented.');
 
   openSidenav() {
     this.isSideNavOpen = true;
-    
+
   }
 
   onImpediments() {
@@ -111,7 +112,7 @@ throw new Error('Method not implemented.');
     this.isSideNavOpen = false;
   }
 
-  release : Release[] ;
+  release: Release[];
 
   ngOnInit(): void {
     this.getAllRelease();
@@ -125,4 +126,11 @@ throw new Error('Method not implemented.');
       console.log(data)
     })
   }
+
+  // Open Scrum Board For Particular Sprint 
+  openScrumBoard(id: number) {
+    this.router.navigate(['scrumBoard', id])
+  }
+
+
 }

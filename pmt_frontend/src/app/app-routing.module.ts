@@ -16,6 +16,7 @@ import { UpdateImpedimentsComponent } from './update-impediments/update-impedime
 import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
 import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
 import { TaskComponent } from './task/task.component';
+import { ScrumBoardComponent } from './scrum-board/scrum-board.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,9 @@ const routes: Routes = [
 ,
   { 
     path: 'task/:id', component: TaskComponent 
+  },
+  {
+    path: 'scrumBoard/:id', component : ScrumBoardComponent
   }
 ];
 

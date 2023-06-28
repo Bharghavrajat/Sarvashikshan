@@ -1,1 +1,281 @@
-<p>scrum-board works!</p>
+
+<!-- <h1>{{releasesSprint.backlogName}}</h1> -->
+
+<br>
+<mat-tab-group>
+    <mat-tab label="Scrum Board">
+        
+        <div class="container-fluid">
+
+            <div class="col-md-12 main" style="background: #ffffff;">
+                <div cdkDropListGroup>
+                    <!-- <div class="row" *ngFor="let us of todo"> -->
+
+
+                    <div class="col-md-3" style="display: inline-block;width: 24%;">
+                        <!-- Todo-->
+                        <div class="example-container">
+                            <div class="heading">
+                                
+                                <mat-card style="background-color: azure;">
+                                    <mat-card-content>TO DO</mat-card-content>
+                                </mat-card>
+                                <hr>
+                            </div>
+
+                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                                    <!-- -----------------info Button---------------- -->
+                                    <button mat-icon-button color="warn"><mat-icon
+                                            style="font-size: 15px;margin-right: 1px;">info</mat-icon></button>
+                                    <!-- -------------------------------------------- -->
+
+
+                                    <!----------------- Add Buttom Not In Used -------------->
+                                    <!-- <button mat-icon-button color="warn" (click)="openDialog()"><mat-icon>add</mat-icon></button> -->
+                                    <!-- ------------------------------------------------- -->
+
+                                    <!-------- Menu Button That Show Edit and Delete Button------->
+
+                                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon
+                                            style="font-size: 20px; float: right; margin-top: 1px;">more_vert</mat-icon>
+                                    </button>
+
+
+                                    <mat-menu #menu="matMenu">
+
+                                        <button mat-menu-item >
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+
+
+                                        <button mat-menu-item>
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+
+                                    </mat-menu>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -----------------Inprogress------------------ -->
+                    <div class="col-md-2" style="display: inline-block;width: 24%;">
+
+                        <div class="example-container">
+                            <div class="heading">
+                                <!-- <h2>To do </h2> -->
+                                <mat-card style="background-color: azure;">
+                                    <mat-card-content>IN PROGRESS</mat-card-content>
+                                </mat-card>
+                                <hr>
+                            </div>
+
+                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                                    <!-- -----------------info Button---------------- -->
+                                    <button mat-icon-button color="warn"><mat-icon
+                                            style="font-size: 15px;margin-right: 1px;">info</mat-icon></button>
+                                    <!-- -------------------------------------------- -->
+
+
+                                    <!----------------- Add Buttom Not In Used -------------->
+                                    <!-- <button mat-icon-button color="warn" (click)="openDialog()"><mat-icon>add</mat-icon></button> -->
+                                    <!-- ------------------------------------------------- -->
+
+                                    <!-------- Menu Button That Show Edit and Delete Button------->
+
+                                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon
+                                            style="font-size: 20px; float: right; margin-top: 1px;">more_vert</mat-icon>
+                                    </button>
+
+
+                                    <mat-menu #menu="matMenu">
+
+                                        <button mat-menu-item>
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+
+
+                                        <button mat-menu-item>
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+
+                                    </mat-menu>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -----------------Testing--------------------- -->
+
+                    <div class="col-md-3" style="display: inline-block;width: 24%;">
+                        <!-- Testing -->
+                        <div class="example-container">
+                            <div class="heading">
+                                <!-- <h2>Testing</h2> -->
+                                <mat-card style="background-color: azure;">
+                                    <mat-card-content>TESTING</mat-card-content>
+                                </mat-card>
+                                <hr>
+                            </div>
+
+                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                                    <!-- -----------------info Button---------------- -->
+                                    <button mat-icon-button color="warn"><mat-icon
+                                            style="font-size: 15px;margin-right: 1px;">info</mat-icon></button>
+                                    <!-- -------------------------------------------- -->
+
+
+                                    <!----------------- Add Buttom Not In Used -------------->
+                                    <!-- <button mat-icon-button color="warn" (click)="openDialog()"><mat-icon>add</mat-icon></button> -->
+                                    <!-- ------------------------------------------------- -->
+
+                                    <!-------- Menu Button That Show Edit and Delete Button------->
+
+                                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon
+                                            style="font-size: 20px; float: right; margin-top: 1px;">more_vert</mat-icon>
+                                    </button>
+
+
+                                    <mat-menu #menu="matMenu">
+
+                                        <button mat-menu-item>
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+
+
+                                        <button mat-menu-item>
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+
+                                    </mat-menu>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -------------------Done--------------------- -->
+
+                    <div class="col-md-3" style="display: inline-block; width: 24%;">
+                        <div class="example-container">
+
+                            <div class="heading">
+                                <!-- <h2>Done <mat-icon style="font-size: 25px;color: green;"> done_all </mat-icon></h2> -->
+                                <mat-card style="background-color: azure;">
+                                    <mat-card-content>DONE</mat-card-content>
+                                </mat-card>
+                                <hr>
+                            </div>
+                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+                                    <!-- -----------------info Button---------------- -->
+                                    <button mat-icon-button color="warn"><mat-icon
+                                            style="font-size: 15px;margin-right: 1px;">info</mat-icon></button>
+                                    <!-- -------------------------------------------- -->
+
+
+                                    <!----------------- Add Buttom Not In Used -------------->
+                                    <!-- <button mat-icon-button color="warn" (click)="openDialog()"><mat-icon>add</mat-icon></button> -->
+                                    <!-- ------------------------------------------------- -->
+
+                                    <!-------- Menu Button That Show Edit and Delete Button------->
+
+                                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                        <mat-icon
+                                            style="font-size: 30px; float: right; margin-top: 1px;">more_vert</mat-icon>
+                                    </button>
+
+
+                                    <mat-menu #menu="matMenu">
+
+                                        <button mat-menu-item>
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Edit</span>
+                                        </button>
+
+
+                                        <button mat-menu-item>
+                                            <mat-icon>delete</mat-icon>
+                                            <span>Delete</span>
+                                        </button>
+
+                                    </mat-menu>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  ------------------------------------------- -->
+
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 
+        <div class="container-fluid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+        
+                        <th>Sprint Number</th>
+        
+                      
+        
+                    </tr>
+                </thead>
+                <tbody>
+        
+        
+                    <tr *ngFor="let r of backlogitem">
+        
+                        <td>{{r.backlog_item_id}}</td>
+        
+                        <td>{{r.backlog_name}}</td>
+        
+                        
+        
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+    </mat-tab>
+
+    <!-- Burn Up chart -->
+    <mat-tab label="Burp Up Chart">
+        Burp Up Chart
+    </mat-tab>
+    <!-- Impendiments -->
+    <mat-tab label="Impendiments">
+        Impendiments
+    </mat-tab>
+</mat-tab-group>

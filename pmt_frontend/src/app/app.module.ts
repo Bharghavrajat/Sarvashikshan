@@ -43,6 +43,8 @@ import { OpenRetrospectionComponent } from './open-retrospection/open-retrospect
 import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
 import { ScrumBoardComponent } from './scrum-board/scrum-board.component';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +90,8 @@ import { ScrumBoardComponent } from './scrum-board/scrum-board.component';
     MatMenuModule,
     MatDialogModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent],
