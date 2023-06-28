@@ -41,6 +41,7 @@ import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
 import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
 import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
+import { ScrumBoardComponent } from './scrum-board/scrum-board.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospect
     UpdateImpedimentsComponent,
     OpenRetrospectionComponent,
     EditRetrospectionComponent,
+    ScrumBoardComponent,
   ],
 
   imports: [
