@@ -5,6 +5,15 @@
 <div class="container" *ngIf="impediments.length > 0">
   <table mat-table [dataSource]="impediments">
 
+    <ng-container matColumnDef="checkbox">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox [(ngModel)]="selectAll"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let impediments">
+        <mat-checkbox [(ngModel)]="impediments.selected"></mat-checkbox>
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="impedimentId">
       <th mat-header-cell *matHeaderCellDef> Impediment ID </th>
       <td mat-cell *matCellDef="let impediment"> {{ impediment.impedimentId }} </td>

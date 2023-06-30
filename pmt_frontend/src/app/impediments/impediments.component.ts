@@ -12,13 +12,14 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class ImpedimentsComponent implements OnInit {
   currentDate: Date;
   createImpediments: any;
+  selectAll: boolean = false; // Add the selectAll property
   deleteImpediments(arg0: any) {
     throw new Error('Method not implemented.');
   }
   impediments: any[] = [];
   displayedColumns: string[] = ['impedimentId', 'title', 'description', 'priority', 'status', 'date', 'raisedBy', 'assignedTo', 'sprint'];
 
-  constructor(private impedimentsService: ImpedimentsService, private router: Router,private dialog: MatDialog) { 
+  constructor(private impedimentsService: ImpedimentsService, private router: Router, private dialog: MatDialog) {
     {
       this.currentDate = new Date();
     }
@@ -34,5 +35,5 @@ export class ImpedimentsComponent implements OnInit {
       console.log(this.impediments);
     });
   }
-  
+
 }
