@@ -1,5 +1,9 @@
 export class Release {
 
-    releaseId : number
+    // releaseId : number
     releaseName : string
+    releaseSprint: any
+
+    // releaseSprintBacklog:any
+    sprintName:string
 }

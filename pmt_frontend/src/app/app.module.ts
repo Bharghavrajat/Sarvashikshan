@@ -41,6 +41,9 @@ import { CreateIssueComponent } from './create-issue/create-issue.component';
 import { UpdateImpedimentsComponent } from './update-impediments/update-impediments.component';
 import { OpenRetrospectionComponent } from './open-retrospection/open-retrospection.component';
 import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospection.component';
+import { ScrumBoardComponent } from './scrum-board/scrum-board.component';
+
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,7 @@ import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospect
     UpdateImpedimentsComponent,
     OpenRetrospectionComponent,
     EditRetrospectionComponent,
+    ScrumBoardComponent,
   ],
 
   imports: [
@@ -86,7 +90,8 @@ import { EditRetrospectionComponent } from './edit-retrospection/edit-retrospect
     MatMenuModule,
     MatDialogModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent],
